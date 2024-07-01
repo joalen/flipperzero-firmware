@@ -35,6 +35,7 @@ jobs:
         if: runner.os == 'Linux' 
         run: |
           #!/bin/bash
+          set +e
 
           files=$(find . -type f)
           failed_compilations=0
@@ -66,7 +67,8 @@ jobs:
         if: runner.os == 'macOS' 
         run: |
           #!/bin/bash
-
+          set +e 
+          
           files=$(find . -type f)
           failed_compilations=0
           successful_compilations=0
