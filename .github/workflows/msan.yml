@@ -128,3 +128,9 @@ jobs:
 
           echo "Memory Sanitizer Failures: $failed_compilations"
           echo "Memory Sanitizer Successes: $successful_compilations"
+
+      - name: Upload Msan reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: msan-report-${{ github.event.repository.name}}-on-${{ matrix.os }}-from_branch_${{ github.ref_name }}
+          path: './memorysan_logs/*'
